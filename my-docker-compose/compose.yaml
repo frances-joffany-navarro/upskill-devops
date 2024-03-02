@@ -1,0 +1,38 @@
+services:
+  webserver:
+    build: ./apache
+    container_name: webserver
+    volumes: 
+      - restaurant-data:/var/www/restaurant-css-framework
+    ports:
+      - "8080:80"
+    networks:
+      - restaurant 
+    depends_on:
+      - php-fpm
+      - mysql
+  
+  php-fpm:
+    build: ./php
+    container_name: php-fpm
+    volumes:
+      - restaurant-data:/var/www/restaurant-css-framework:ro
+    networks:
+      - restaurant
+    depends_on:
+      - mysql
+
+  mysql:
+    build: ./mysql
+    container_name: mysql 
+    ports: 
+      - "3306:3306" 
+    networks:
+      - restaurant
+
+volumes:
+    restaurant-data: 
+
+networks:
+    restaurant:
+      name: restaurant-network
