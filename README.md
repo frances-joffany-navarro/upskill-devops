@@ -1,17 +1,17 @@
-# Upskill in Devops
-This project is intended to showcase my learnings in my Devops journey.
+# Upskill in Devops ![Static Badge](https://img.shields.io/badge/In%20progress-royalblue)
+This project is intended to showcase my learnings in my Devops journey. Started it on
 
 ## Objective
 Using [https://github.com/frances-joffany-navarro/restaurant-css-framework](https://github.com/frances-joffany-navarro/restaurant-css-framework), the goal will be to run and host this website in different ways.
 
 ## Roadmap
 The different ways:
-1. [Local VM - Packages](#local-vm-packages)
-2. [Local VM - Containers](#local-vm-containers)
-3. [Cloud hosted VM - packages](#cloud-hosted-vm-packages)
-4. [Cloud hosted VM - containers](#cloud-hosted-vm-containers)
-5. [Kubernetes hosting - locally](#kubernetes-hosting-locally)
-6. [Kubernetes hosting - cloud](#kubernetes-hosting-cloud)
+1. [Local VM - Packages](#local-vm-packages) ![Static Badge](https://img.shields.io/badge/Done-darkgreen)
+2. [Local VM - Containers](#local-vm-containers) ![Static Badge](https://img.shields.io/badge/Done-darkgreen)
+3. [Cloud hosted VM - packages](#cloud-hosted-vm-packages) ![Static Badge](https://img.shields.io/badge/To%20do-grey)
+4. [Cloud hosted VM - containers](#cloud-hosted-vm-containers) ![Static Badge](https://img.shields.io/badge/To%20do-grey)
+5. [Kubernetes hosting - locally](#kubernetes-hosting-locally) ![Static Badge](https://img.shields.io/badge/To%20do-grey)
+6. [Kubernetes hosting - cloud](#kubernetes-hosting-cloud) ![Static Badge](https://img.shields.io/badge/To%20do-grey)
 
 <a id="local-vm-packages"></a>
 ### Local VM - Packages
@@ -24,7 +24,13 @@ The different ways:
 7. Automate the deployment of your code using **Ansible**. See [ansible-quickstart](https://github.com/frances-joffany-navarro/upskill-devops/tree/main/ansible_quickstart)
 
 <a id="local-vm-containers"></a>
-### Local VM - Containers
+### Local VM - Containers 
+1. Start from a fresh new ubuntu VM.
+2. Install **Docker** or podman as container engines.
+3. Deploy 3 containers; 1 for the web server, 1 for the DB and 1 for php.
+4. Get repo in the web server container.
+5. Make the 3 containers work together and make site available from within the VM (look into exposing or exporting a port when running the web server container). See [docker-quickstart](https://github.com/frances-joffany-navarro/upskill-devops/tree/main/docker_quickstart).
+6. Use **docker-compose** to orchestrate the deployment of the 3 containers and create a new web server image that clones repo on deployment. See [my-docker-compose](https://github.com/frances-joffany-navarro/upskill-devops/tree/main/my-docker-compose).
 
 <a id="cloud-hosted-vm-packages"></a>
 ### Cloud hosted VM - packages
@@ -40,8 +46,3 @@ The different ways:
 
 ## Acknowledgement
 Bayani Carbone
-
-
-
-
-
