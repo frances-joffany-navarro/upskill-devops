@@ -1,0 +1,25 @@
+- hosts: localhost
+  gather_facts: False
+  vars_files:
+    - variables.yaml
+  tasks:
+    #    - name: create key pair using key_material obtained using 'file' lookup plugin  
+    #      amazon.aws.ec2_key:
+    #        name: my_local_key
+    #        key_material: "{{ lookup('file', '/home/frances/.ssh/id_rsa.pub') }}"
+
+    - name: Access AWS using an iam user credentials
+      amazon.aws.ec2_instance:
+        name: ubuntu22-ansible
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        key_name: "ubuntu22_cloud_packages"
+        instance_type: t3.micro
+        security_group: launch-wizard-2
+        image_id: ami-0914547665e6a707c
+        region: eu-north-1
+
+          #- name: Setup AWS instance to serve Restaurant Website
+  #  hosts: aws-server
+    #  tasks:
+    #    - import_playbook: restaurant-setup-playbook.yaml 

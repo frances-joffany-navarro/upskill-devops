@@ -1,0 +1,108 @@
+- name: Serve Kamainsyan Website in cloud 
+  hosts: awsserver
+  become: yes
+  tasks:
+    - name: Ping my hosts
+      ansible.builtin.ping:
+    
+    - name: Update package
+      apt: 
+        update_cache: yes
+
+    - name: Install Apache2
+      apt: 
+        name: apache2 
+        state: present
+
+    - name: Start Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Install PHP and MySQL
+      apt:
+        name: 
+          - php
+          - libapache2-mod-php
+          - php-mysql
+          - mysql-server
+          - python3-pymysql
+        state: present
+        update_cache: yes
+      notify: restart apache2
+
+    - name: Install Git
+      apt:
+        name: git-all
+        state: present
+        update_cache: yes
+
+    - name: Clone Kamainsyan repository
+      git:
+        repo: https://github.com/frances-joffany-navarro/restaurant-css-framework.git
+        dest: /var/www/restaurant-css-framework
+        clone: yes
+        update: yes
+        force: yes 
+
+    - name: Configure DocumentRoot to /var/www/restaurant-css-framework
+      replace: 
+        path: /etc/apache2/sites-available/000-default.conf
+        after: 'DocumentRoot '
+        regexp: '\/var\/www\/html'      
+        replace: '/var/www/restaurant-css-framework'
+      notify:
+        - restart apache2
+
+    - name: Start MySQL
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Copy database dump file
+      copy: 
+        src: create_db.sql
+        dest: /tmp
+    
+    - name: Create `/root/.my.cnf` with root password credentials
+      template:
+        src: my.cnf
+        dest: /root/.my.cnf
+        owner: root
+        mode: 0600  
+      notify: restart mysql    
+              
+    - name: Connect to Server
+      mysql_user:
+          name: root
+          password: 123
+          state: present
+          login_unix_socket: /var/run/mysqld/mysqld.sock
+
+    - name: Restore Database
+      mysql_db:
+        name: restaurant_dbase
+        state: import
+        login_user: root
+        login_password: 123
+        target: /tmp/create_db.sql
+        force: true
+      notify: restart mysql
+
+    - name: Restart Apache2
+      systemd_service:
+        name: apache2 
+        state: restarted
+
+  handlers:
+    - name: restart apache2
+      service:
+        name: apache2
+        state: restarted
+    
+    - name: restart mysql
+      service:
+        name: mysql
+        state: restarted      
