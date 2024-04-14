@@ -1,3 +1,6 @@
 [submodule "docker_quickstart/restaurant-css-framework"]
 	path = docker_quickstart/restaurant-css-framework
 	url = git@github.com:frances-joffany-navarro/restaurant-css-framework.git
+[submodule "cloud-docker/restaurant-css-framework"]
+	path = cloud-docker/restaurant-css-framework
+	url = https://github.com/frances-joffany-navarro/restaurant-css-framework.git
