@@ -33,7 +33,9 @@ CREATE TABLE IF NOT EXISTS `user` (
       	UNIQUE KEY `username` (`username`)
 );
 
-USE mysql;
+/*USE mysql;
 UPDATE user SET plugin='mysql_native_password' WHERE User='root';
-FLUSH PRIVILEGES;
+FLUSH PRIVILEGES;*/
+
+SET PASSWORD FOR 'root'@'localhost' = '123';
 exit
