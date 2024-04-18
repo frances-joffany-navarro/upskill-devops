@@ -5,7 +5,7 @@ services:
     volumes: 
       - restaurant-data:/var/www/restaurant-css-framework
     ports:
-      - "8080:80"
+      - "80:80"
     networks:
       - restaurant 
     depends_on:
@@ -15,6 +15,9 @@ services:
   php-fpm:
     build: ./php
     container_name: php-fpm
+    environment:
+      - mysql-server-name=mysql
+      - mysql-server-passwd=root
     volumes:
       - restaurant-data:/var/www/restaurant-css-framework:ro
     networks:
