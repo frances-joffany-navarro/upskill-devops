@@ -14,9 +14,13 @@
     - name: Install required packages
       ansible.builtin.apt:
         pkg:
+        - apt-transport-https
         - ca-certificates
         - curl
         - python3-pip
+        - gnupg
+        - software-properties-common
+        
 
     - name: Create directory for Docker's GPG key
       file: 
@@ -50,6 +54,7 @@
         update_cache: true
       loop:
         - docker-ce
+        - containerd.io
 
     - name: Install Docker Module for Python
       ansible.builtin.pip:
