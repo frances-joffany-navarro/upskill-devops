@@ -89,9 +89,8 @@
       community.docker.docker_login:
         username: "{{ docker_username }}"
         password: "{{ docker_token }}"
-        reauthorize: yes
       register: login_results
-    - debug: 
+    - ansible.builtin.debug: 
         var: login_results
 
     # This task pull multiple images that was indicated in loop
