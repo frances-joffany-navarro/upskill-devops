@@ -59,7 +59,7 @@
     - name: Install Docker Module for Python
       ansible.builtin.pip:
         name: 
-          - docker
+          - docker==6.1.3
           - docker-compose
 
     - name: Add Docker group
