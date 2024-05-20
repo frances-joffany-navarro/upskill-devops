@@ -87,8 +87,11 @@
 
     - name: Log into DockerHub
       community.docker.docker_login:
-        username: "{{ docker_username  }}"
+        username: "{{ docker_username }}"
         password: "{{ docker_token }}"
+        reauthorize: yes
+      register: login_results
+    - debug: login_results
 
     # This task pull multiple images that was indicated in loop
     - name: Pull Docker Images
