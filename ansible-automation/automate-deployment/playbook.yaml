@@ -82,7 +82,7 @@
         - docker
         - containerd
     - ansible.builtin.debug: 
-      var: status
+        var: status
     
     - name: Log into DockerHub
       docker_login:
