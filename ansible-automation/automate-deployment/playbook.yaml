@@ -89,7 +89,7 @@
       docker_login:
         username: "{{ docker_username }}"
         password: "{{ docker_token }}"
-        api_version: "1.45"
+        api_version: "1.44"
       register: login_results
     - ansible.builtin.debug: 
         var: login_results
