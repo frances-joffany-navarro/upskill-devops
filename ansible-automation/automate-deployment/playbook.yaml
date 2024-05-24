@@ -86,7 +86,7 @@
         var: status
     
     - name: Log into DockerHub
-      docker_login:
+      community.docker.docker_login:
         username: "{{ docker_username }}"
         password: "{{ docker_token }}"
         api_version: "1.44"
