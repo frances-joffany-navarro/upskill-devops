@@ -59,9 +59,11 @@
     - name: Install Docker Module for Python
       ansible.builtin.pip:
         name: 
-          - docker
-          #- docker==6.1.3
+          #- docker
+          - docker==6.1.3
           - docker-compose
+          # downgrade requests
+          - requests==2.31.0
 
     - name: Add Docker group
       ansible.builtin.group:
