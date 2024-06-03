@@ -1,7 +1,7 @@
 - name: Create new instance and add new instance's public IP address
   hosts: local
   connection: local
-  gather_facts: False
+  gather_facts: false
   vars_files:
     - variables.yaml
   tasks:
@@ -15,7 +15,7 @@
 
     - name: Access AWS using an iam user credentials
       amazon.aws.ec2_instance:
-        name: "{{ instance_name }}"
+        name: "{{ lookup('community.general.random_string') }}"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
         key_name: "my-github-key"
@@ -23,15 +23,16 @@
         security_group: launch-wizard-2
         image_id: ami-0914547665e6a707c
         region: eu-north-1
-        wait: true
+        network:
+          assign_public_ip: true
       register: ec2
 
     - debug:
-        msg: "{{ ec2.instances[0].network_interfaces[0].association.public_ip }}"
+        msg: "{{ec2}}" 
 
     - name: Add new host to group 'aws_host'
       ansible.builtin.add_host:
-        name: "{{ ec2.instances[0].network_interfaces[0].association.public_ip }}"
+        name: "{{ ec2.instances[0].public_dns_name }}"
         groups: aws_host
 
 - name: Automate deployment for Restaurant website
