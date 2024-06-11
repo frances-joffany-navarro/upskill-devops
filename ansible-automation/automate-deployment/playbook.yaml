@@ -6,6 +6,10 @@
     - variables.yaml
   tasks:
    
+    - name: Update packages
+      ansible.builtin.apt:
+        update_cache: yes
+         
     - name: Install petname package
       ansible.builtin.pip:
         name: 
