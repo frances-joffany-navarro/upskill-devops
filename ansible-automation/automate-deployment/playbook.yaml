@@ -10,8 +10,6 @@
     - name: Install packages
       ansible.builtin.pip:
         name: 
-          - botocore
-          - boto3
           - petname
 
     - name: create key pair using key_material obtained using 'file' lookup plugin
