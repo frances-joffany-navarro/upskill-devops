@@ -15,7 +15,7 @@
 
     - name: Access AWS using an iam user credentials
       amazon.aws.ec2_instance:
-        name: "{{ lookup('community.general.random_string') }}"
+        name: "{{ var: lookup('community.general.random_pet') }}"
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
         key_name: "my-github-key"
