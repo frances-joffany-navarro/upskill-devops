@@ -5,10 +5,10 @@
   vars_files:
     - variables.yaml
   tasks:
+   
     - name: Install petname package
       ansible.builtin.pip:
-        name:
-          - petname
+        name: petname
 
     - name: create key pair using key_material obtained using 'file' lookup plugin
       amazon.aws.ec2_key:
