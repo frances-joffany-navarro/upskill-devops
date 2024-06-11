@@ -1,15 +1,12 @@
 - name: Create new instance and add new instance's public IP address
   hosts: local
   connection: local
+  become: true
   gather_facts: false
   vars_files:
     - variables.yaml
-  tasks:
-   
-    - name: Update packages
-      ansible.builtin.apt:
-        update_cache: yes
-         
+  
+  tasks:   
     - name: Install petname package
       ansible.builtin.pip:
         name: 
@@ -69,7 +66,6 @@
         - python3-pip
         - gnupg
         - software-properties-common
-       
 
     - name: Create directory for Docker's GPG key
       file: 
