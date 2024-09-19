@@ -27,12 +27,9 @@
     
     - name: Install petname package
       ansible.builtin.pip:
-        name: 
+        name: petname
           #- xkcdpass
-          - petname
-
-    - name: Just get the list from default pip after
-      community.general.pip_package_info:
+        executable: pip3.3
 
     - name: Generate random words
       ansible.builtin.debug:
