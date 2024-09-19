@@ -20,7 +20,7 @@
         aws_secret_key: "{{ aws_secret_key }}"
         region: eu-north-1
         key_material: "ssh-rsa {{ ssh_public_key }}" #{{ lookup('file', '~/.ssh/id_rsa_github.pub') }}
-      #no_log: true
+        no_log: true
     
     - name: Just get the list from default pip before
       community.general.pip_package_info:
