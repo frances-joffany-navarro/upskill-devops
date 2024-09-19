@@ -25,11 +25,16 @@
     - name: Just get the list from default pip before
       community.general.pip_package_info:
     
+    - name: Install required packages
+      ansible.builtin.apt:
+        pkg:
+        - python3-pip
+
     - name: Install petname package
       ansible.builtin.pip:
         name: petname
           #- xkcdpass
-        executable: pip3.3
+        executable: pip3
 
     - name: Generate random words
       ansible.builtin.debug:
