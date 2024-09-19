@@ -25,11 +25,13 @@
     - name: Install petname package
       ansible.builtin.pip:
         name: 
-          - petname
+          - xkcdpass
+          #- petname
 
-    - name: Generate pet name
+    - name: Generate random words
       ansible.builtin.debug:
-        var: lookup('community.general.random_pet')
+        #var: lookup('community.general.random_pet')
+        var: lookup('community.general.random_words')
 
     - name: Access AWS using an iam user credentials
       amazon.aws.ec2_instance:
