@@ -24,6 +24,10 @@
         key_material: "ssh-rsa {{ ssh_public_key }}" #{{ lookup('file', '~/.ssh/id_rsa_github.pub') }}
       #no_log: true
 
+    - name: Generate pet name
+      ansible.builtin.debug:
+        var: lookup('community.general.random_pet')
+        
     - name: Access AWS using an iam user credentials
       amazon.aws.ec2_instance:
         name: "{{ lookup('community.general.random_pet') }}"
