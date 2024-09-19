@@ -28,16 +28,16 @@
     - name: Install petname package
       ansible.builtin.pip:
         name: 
-          - xkcdpass
-          #- petname
+          #- xkcdpass
+          - petname
 
     - name: Just get the list from default pip after
       community.general.pip_package_info:
 
     - name: Generate random words
       ansible.builtin.debug:
-        #var: lookup('community.general.random_pet')
-        var: lookup('community.general.random_words')
+        var: lookup('community.general.random_pet')
+        #var: lookup('community.general.random_words')
 
     - name: Access AWS using an iam user credentials
       amazon.aws.ec2_instance:
