@@ -21,16 +21,18 @@
         region: eu-north-1
         key_material: "ssh-rsa {{ ssh_public_key }}" #{{ lookup('file', '~/.ssh/id_rsa_github.pub') }}
       #no_log: true
-    - name: Install required packages
-      ansible.builtin.apt:
-        pkg:
-        - python3-pip
-
+    
+    - name: Just get the list from default pip before
+      community.general.pip_package_info:
+    
     - name: Install petname package
       ansible.builtin.pip:
         name: 
           - xkcdpass
           #- petname
+
+    - name: Just get the list from default pip after
+      community.general.pip_package_info:
 
     - name: Generate random words
       ansible.builtin.debug:
