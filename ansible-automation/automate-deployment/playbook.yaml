@@ -9,11 +9,11 @@
   tasks:   
     - name: Install packages
       ansible.builtin.pip:
-#        executable: /usr/bin/pip3
+        executable: /usr/bin/python3
         name: 
           - botocore
           - boto3
-#          - xkcdpass
+          - xkcdpass
 
     - name: create key pair using key_material obtained using 'file' lookup plugin
       amazon.aws.ec2_key:
