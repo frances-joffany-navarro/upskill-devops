@@ -9,7 +9,7 @@
   tasks:   
     - name: Install packages
       ansible.builtin.pip:
-        executable: /usr/bin/pip3
+#        executable: /usr/bin/pip3
         name: 
           - botocore
           - boto3
