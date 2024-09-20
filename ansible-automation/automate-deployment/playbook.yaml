@@ -10,6 +10,7 @@
     - name: Install packages
       ansible.builtin.pip:
         name: 
+          - petname
           - botocore
           - boto3
 
