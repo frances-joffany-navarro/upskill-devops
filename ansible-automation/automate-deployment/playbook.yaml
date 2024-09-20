@@ -39,7 +39,7 @@
 
     - name: Generate random words
       ansible.builtin.debug:
-        var: lookup('community.general.random_pet')
+        var: lookup('community.general.random_pet', words=3)
         #var: lookup('community.general.random_words')
 
     - name: Access AWS using an iam user credentials
