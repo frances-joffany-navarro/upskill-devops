@@ -13,7 +13,7 @@
         name: 
           - botocore
           - boto3
-          - xkcdpass
+#          - xkcdpass
 
     - name: create key pair using key_material obtained using 'file' lookup plugin
       amazon.aws.ec2_key:
