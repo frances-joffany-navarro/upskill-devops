@@ -14,7 +14,7 @@
           - boto3
           - xkcdpass
 
-    - command: "{{ ansible_python_interpreter | default('/usr/bin/python') }} -c 'import {{ module }}; print({{ module }}.version)'"
+    - command: "{{ ansible_python_interpreter | default('/usr/bin/python') }} -c 'import {{ module }}; print({{ module }})'"
       vars:
         module: xkcdpass
       register: test
