@@ -6,13 +6,21 @@
   vars_files:
     - variables.yaml
   
-  tasks:   
+  tasks:
     - name: Install packages
       ansible.builtin.pip:
         name: 
           - botocore
           - boto3
           - xkcdpass
+
+    - command: "{{ ansible_python_interpreter | default('/usr/bin/python') }} -c 'import {{ module }}; print({{ module }}.__version__)'"
+      vars:
+        module: xkcdpass
+      register: test
+
+    - debug:
+        var: test.stdout
 
     - name: create key pair using key_material obtained using 'file' lookup plugin
       amazon.aws.ec2_key:
