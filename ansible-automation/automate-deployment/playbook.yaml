@@ -47,8 +47,8 @@
           assign_public_ip: true
       register: ec2
 
-    - debug:
-        msg: "{{ec2}}" 
+    #- debug:
+    #    msg: "{{ec2}}" 
 
     - name: Add new host to group 'aws_host'
       ansible.builtin.add_host:
