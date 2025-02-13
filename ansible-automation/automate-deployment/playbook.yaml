@@ -41,7 +41,7 @@
         key_name: "my-github-key"
         instance_type: t3.micro
         security_group: launch-wizard-2
-        image_id: ami-0914547665e6a707c
+        image_id: ami-04b4f1a9cf54c11d0
         region: us-east-1
         network:
           assign_public_ip: true
