@@ -29,7 +29,7 @@
         name: my-github-key
         aws_access_key: "{{ aws_access_key }}"
         aws_secret_key: "{{ aws_secret_key }}"
-        region: eu-north-1
+        region: us-east-1
         key_material: "ssh-rsa {{ ssh_public_key }}" #{{ lookup('file', '~/.ssh/id_rsa_github.pub') }}
       no_log: true
       
@@ -42,7 +42,7 @@
         instance_type: t3.micro
         security_group: launch-wizard-2
         image_id: ami-0914547665e6a707c
-        region: eu-north-1
+        region: us-east-1
         network:
           assign_public_ip: true
       register: ec2
