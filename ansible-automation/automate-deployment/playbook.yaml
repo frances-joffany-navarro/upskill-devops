@@ -75,6 +75,7 @@
         - ca-certificates
         - curl
         - python3-pip
+        - python3-3.12
         - gnupg
         - software-properties-common
 
@@ -116,11 +117,12 @@
       ansible.builtin.pip:
         name: 
           #- docker
-          - python3-3.12
           - docker==6.1.3
           - docker-compose
           # downgrade requests
           - requests==2.31.0
+        #virtualenv: /my_app/venv
+        #virtualenv_command: virtualenv-3.12
 
     - name: Add Docker group
       ansible.builtin.group:
