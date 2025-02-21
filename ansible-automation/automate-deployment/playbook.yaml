@@ -116,6 +116,7 @@
       ansible.builtin.pip:
         name: 
           #- docker
+          - python3-xyz
           - docker==6.1.3
           - docker-compose
           # downgrade requests
