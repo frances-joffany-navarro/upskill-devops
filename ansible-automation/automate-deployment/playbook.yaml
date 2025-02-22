@@ -123,16 +123,29 @@
         #virtualenv: /my_app/venv
         #virtualenv_command: virtualenv-3.12
 
-    - name: Install Docker Module for Python
-      vars:
-        pipx_packages:
-          - docker==6.1.3
-          - docker-compose
+    #- name: Install Docker Module for Python
+    #  vars:
+    #    pipx_packages:
+    #      - docker==6.1.3
+    #      - docker-compose
+    #      # downgrade requests
+    #      - requests==2.31.0
+    #  community.general.pipx:
+    #    name: "{{ item }}"
+    #  with_items: "{{ pipx_packages }}
+
+    - name: Just get the list from default pip
+      community.general.pip_package_info:
+
+    - name: Install bottle into the specified (virtualenv), using Python 2.7
+      ansible.builtin.pip:
+        name: 
+         - docker==6.1.3
+         - docker-compose
           # downgrade requests
-          - requests==2.31.0
-      community.general.pipx:
-        name: "{{ item }}"
-      with_items: "{{ pipx_packages }}"
+         - requests==2.31.0
+        virtualenv: /my_app/venv
+        virtualenv_command: virtualenv-2.7
 
     - name: Add Docker group
       ansible.builtin.group:
