@@ -145,7 +145,10 @@
           # downgrade requests
          - requests==2.31.0
         virtualenv: /my_app/venv
-        virtualenv_command: virtualenv-2.7
+        virtualenv_site_packages: yes
+
+    - name: Just get the list from default pip
+      community.general.pip_package_info:
 
     - name: Add Docker group
       ansible.builtin.group:
