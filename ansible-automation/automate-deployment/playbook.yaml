@@ -112,16 +112,27 @@
         - docker-ce
         - containerd.io
 
-    - name: Install Docker Module for Python
-      ansible.builtin.pip:
-        name: 
+    #- name: Install Docker Module for Python
+    #  ansible.builtin.pip:
+    #    name: 
           #- docker
+    #      - docker==6.1.3
+    #      - docker-compose
+          # downgrade requests
+    #      - requests==2.31.0
+        #virtualenv: /my_app/venv
+        #virtualenv_command: virtualenv-3.12
+
+    - name: Install Docker Module for Python
+      vars:
+        pipx_packages:
           - docker==6.1.3
           - docker-compose
           # downgrade requests
           - requests==2.31.0
-        #virtualenv: /my_app/venv
-        #virtualenv_command: virtualenv-3.12
+      community.general.pipx:
+        name: "{{ item }}"
+      with_items: "{{ pipx_packages }}"
 
     - name: Add Docker group
       ansible.builtin.group:
