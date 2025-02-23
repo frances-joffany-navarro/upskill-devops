@@ -124,34 +124,36 @@
         #virtualenv: /my_app/venv
         #virtualenv_command: virtualenv-3.12
 
-    #- name: Install Docker Module for Python
-    #  vars:
-    #    pipx_packages:
-    #      - docker==6.1.3
-    #      - docker-compose
-    #      # downgrade requests
-    #      - requests==2.31.0
-    #  community.general.pipx:
-    #    name: "{{ item }}"
-    #  with_items: "{{ pipx_packages }}
-
     - name: Just get the list from default pip
       community.general.pip_package_info:
 
     - name: Install virtualenv
       community.general.pipx:
         name: virtualenv
-
-    - name: Install Docker Module for Python into the specified (virtualenv), using Python 3.12
-      ansible.builtin.pip:
-        name: 
-         - docker==6.1.3
-         - docker-compose
+   
+    - name: Install Docker Module for Python
+      vars:
+        pipx_packages:
+          - docker==6.1.3
+          - docker-compose
           # downgrade requests
-         - requests==2.31.0
-        virtualenv: /my_app/venv
-        #virtualenv_command: virtualenv-3.12
-        #virtualenv_site_packages: yes
+          - requests==2.31.0
+      community.general.pipx:
+        name: "{{ item }}"
+      with_items: "{{ pipx_packages }}"
+
+    
+
+    #- name: Install Docker Module for Python into the specified (virtualenv), using Python 3.12
+    #  ansible.builtin.pip:
+    #    name: 
+    #     - docker==6.1.3
+    #     - docker-compose
+    #      # downgrade requests
+    #     - requests==2.31.0
+    #    virtualenv: /my_app/venv
+    #    #virtualenv_command: virtualenv-3.12
+    #    #virtualenv_site_packages: yes
         
 
     - name: Just get the list from default pip
