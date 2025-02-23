@@ -137,6 +137,10 @@
     - name: Just get the list from default pip
       community.general.pip_package_info:
 
+    - name: Install virtualenv
+      community.general.pipx:
+        name: virtualenv
+
     - name: Install Docker Module for Python into the specified (virtualenv), using Python 3.12
       ansible.builtin.pip:
         name: 
@@ -145,7 +149,7 @@
           # downgrade requests
          - requests==2.31.0
         virtualenv: /my_app/venv
-        virtualenv_command: virtualenv-3.12
+        #virtualenv_command: virtualenv-3.12
         #virtualenv_site_packages: yes
         
 
