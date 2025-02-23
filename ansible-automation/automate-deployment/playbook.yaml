@@ -142,7 +142,12 @@
         name: "{{ item }}"
       with_items: "{{ pipx_packages }}"
 
-    
+    - name: Run pipx ensurepath
+      ansible.builtin.command: pipx ensurepath
+      register: cmd_results
+
+    - ansible.builtin.debug: 
+        var: cmd_results
 
     #- name: Install Docker Module for Python into the specified (virtualenv), using Python 3.12
     #  ansible.builtin.pip:
