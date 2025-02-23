@@ -111,6 +111,7 @@
       loop:
         - docker-ce
         - containerd.io
+        - pipx
 
     #- name: Install Docker Module for Python
     #  ansible.builtin.pip:
