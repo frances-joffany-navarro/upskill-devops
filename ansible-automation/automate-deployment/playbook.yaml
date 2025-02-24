@@ -115,8 +115,8 @@
 
     - name: Create File for virtualenv
       ansible.builtin.file:
-      path: my-app
-      state: directory
+        path: my-app
+        state: directory
 
     - name: Create virtual environment
       ansible.builtin.command: python3 -m venv my-env
