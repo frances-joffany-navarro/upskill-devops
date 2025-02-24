@@ -125,7 +125,9 @@
     
     - name: Activate virtual environment
       ansible.builtin.command: source my-env/bin/activate
-
+      args:
+        chdir: my-app/
+        
     - name: Install Docker Module for Python
       ansible.builtin.pip:
         name: 
@@ -134,7 +136,7 @@
           - docker-compose
           # downgrade requests
           - requests==2.31.0
-        chdir: cd -
+        #chdir: cd -
         virtualenv: my_app/venv
 
     - name: Just get the list from default pip
