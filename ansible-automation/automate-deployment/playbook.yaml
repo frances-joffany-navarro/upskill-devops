@@ -113,9 +113,9 @@
         - docker-ce
         - containerd.io
 
-    - name: Create File for virtualenv
-      ansible.builtin.file:
-      path: my-app
+    #- name: Create File for virtualenv
+    #  ansible.builtin.file:
+    #  path: my-app
 
     - name: Create and activate virtual environment
       ansible.builtin.command: 
