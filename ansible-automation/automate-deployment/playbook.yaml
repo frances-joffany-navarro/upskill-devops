@@ -77,6 +77,7 @@
         - python3-pip
         - gnupg
         - software-properties-common
+        - python3-venv
 
     - name: Create directory for Docker's GPG key
       ansible.builtin.file: 
@@ -111,55 +112,28 @@
       loop:
         - docker-ce
         - containerd.io
-        - pipx
 
-    #- name: Install Docker Module for Python
-    #  ansible.builtin.pip:
-    #    name: 
-          #- docker
-    #      - docker==6.1.3
-    #      - docker-compose
-          # downgrade requests
-    #      - requests==2.31.0
-        #virtualenv: /my_app/venv
-        #virtualenv_command: virtualenv-3.12
+    - name: Create File for virtualenv
+      ansible.builtin.file:
+      path: my-app
 
-    - name: Just get the list from default pip
-      community.general.pip_package_info:
+    - name: Create and activate virtual environment
+      ansible.builtin.command: 
+      args:
+        - python3 -m venv my-env
+        - source my-env/bin/activate
+      chdir: my-app/
 
-    - name: Install virtualenv
-      community.general.pipx:
-        name: virtualenv
-   
     - name: Install Docker Module for Python
-      vars:
-        pipx_packages:
+      ansible.builtin.pip:
+        name: 
+          #- docker
           - docker==6.1.3
           - docker-compose
           # downgrade requests
           - requests==2.31.0
-      community.general.pipx:
-        name: "{{ item }}"
-      with_items: "{{ pipx_packages }}"
-
-    - name: Run pipx ensurepath
-      ansible.builtin.command: pipx ensurepath
-      register: cmd_results
-
-    - ansible.builtin.debug: 
-        var: cmd_results
-
-    #- name: Install Docker Module for Python into the specified (virtualenv), using Python 3.12
-    #  ansible.builtin.pip:
-    #    name: 
-    #     - docker==6.1.3
-    #     - docker-compose
-    #      # downgrade requests
-    #     - requests==2.31.0
-    #    virtualenv: /my_app/venv
-    #    #virtualenv_command: virtualenv-3.12
-    #    #virtualenv_site_packages: yes
-        
+        chdir: cd -
+        virtualenv: my_app/venv
 
     - name: Just get the list from default pip
       community.general.pip_package_info:
