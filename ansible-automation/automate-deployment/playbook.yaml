@@ -130,7 +130,7 @@
     - name: Activate virtual environment
       ansible.builtin.command: source my-env/bin/activate
       args:
-        chdir: my-app/
+        chdir: /my-app/
         
     - name: Install Docker Module for Python
       ansible.builtin.pip:
