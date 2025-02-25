@@ -118,19 +118,19 @@
         path: my-app
         state: directory
 
-    - name: Create virtual environment
-      ansible.builtin.command: python3 -m venv my-env
-      args:
-        chdir: my-app/
+    #- name: Create virtual environment
+    #  ansible.builtin.command: python3 -m venv my-env
+    #  args:
+    #    chdir: my-app/
     
-    - name: Check the current directory
-      ansible.builtin.shell:
-        cmd: pwd
+    #- name: Check the current directory
+    #  ansible.builtin.shell:
+    #    cmd: pwd
 
-    - name: Activate virtual environment
-      ansible.builtin.command: ls #source my-env/bin/activate
-      args:
-        chdir: my-app/
+    #- name: Activate virtual environment
+    #  ansible.builtin.command: source my-env/bin/activate
+    #  args:
+    #    chdir: my-app/
         
     - name: Install Docker Module for Python
       ansible.builtin.pip:
@@ -142,6 +142,8 @@
           - requests==2.31.0
         #chdir: cd -
         virtualenv: my_app/venv
+        virtualenv_command: python3 -m venv my-env
+
 
     - name: Just get the list from default pip
       community.general.pip_package_info:
