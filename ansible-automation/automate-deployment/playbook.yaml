@@ -141,7 +141,7 @@
           # downgrade requests
           - requests==2.31.0
         #chdir: cd -
-        virtualenv: my_app/my-env
+        virtualenv: /my_app/my-env
         virtualenv_command: python3 -m venv my-env
         virtualenv_site_packages: true
 
