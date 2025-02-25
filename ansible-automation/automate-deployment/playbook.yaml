@@ -123,9 +123,9 @@
       args:
         chdir: my-app/
     
-    - name: This command will change the working directory to somedir/
+    - name: Check the current directory
       ansible.builtin.shell:
-      cmd: where
+        cmd: where
 
     - name: Activate virtual environment
       ansible.builtin.command: source my-env/bin/activate
