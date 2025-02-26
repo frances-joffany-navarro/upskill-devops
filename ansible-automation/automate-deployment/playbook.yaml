@@ -140,9 +140,9 @@
           - docker-compose
           # downgrade requests
           - requests==2.31.0
-        #chdir: cd -
-        virtualenv: /my_app/my-env
-        virtualenv_command: python3 -m venv my-env
+        chdir: my-app/
+        virtualenv: my-env
+        virtualenv_command: python3 -m venv
         virtualenv_site_packages: true
 
 
