@@ -128,26 +128,28 @@
       ansible.builtin.shell:
         cmd: pwd
 
-    - name: Activate virtual environment
-      ansible.builtin.command: source my-app/my-env/bin/activate
+    #- name: Activate virtual environment
+    #  ansible.builtin.command: source my-app/my-env/bin/activate
       #args:
       #  chdir: my-app
     
-    - name: Deactivate virtual environment
-      ansible.builtin.command: deactivate
-      args:
-        chdir: my-app/
+    #- name: Deactivate virtual environment
+    #  ansible.builtin.command: deactivate
+    #  args:
+    #    chdir: my-app/
         
     - name: Install Docker Module for Python
-      ansible.builtin.pip:
-        name: 
+      ansible.builtin.shell: my-app/my-env/bin/pip3 install docker==6.1.3 requests==2.31.0
+    #  ansible.builtin.pip:
+    #    name: 
     #      #- docker
-          - docker==6.1.3
+    #      - docker==6.1.3
     #      - docker-compose
     #      # downgrade requests
-          - requests==2.31.0
+    #      - requests==2.31.0
         #chdir: 
-        virtualenv: my-app/my-env
+    #    virtualenv: my-app/my-env
+    #    virtualenv_python: python3
         #virtualenv_command: python3 -m venv
         #virtualenv_site_packages: true
 
