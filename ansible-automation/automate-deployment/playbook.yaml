@@ -141,9 +141,9 @@
           - docker-compose
           # downgrade requests
           - requests==2.31.0
-        chdir: my-app/
-        virtualenv: my-env
-        virtualenv_command: python3 -m venv
+        #chdir: my-app/
+        #virtualenv: my-env
+        #virtualenv_command: python3 -m venv
         #virtualenv_site_packages: true
 
     - name: Just get the list from default pip
