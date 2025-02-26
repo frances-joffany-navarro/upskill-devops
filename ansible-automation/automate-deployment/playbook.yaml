@@ -119,9 +119,9 @@
         state: directory
 
     #- name: Create virtual environment
-    #  ansible.builtin.command: python3 -m venv my-env
+    #  ansible.builtin.command: python -m ensurepip --upgrade
     #  args:
-    #    chdir: my-app/
+    #    chdir: my-app/my-env
     
     #- name: Check the current directory
     #  ansible.builtin.shell:
@@ -143,8 +143,8 @@
         chdir: my-app/
         virtualenv: my-env
         virtualenv_command: python3 -m venv
-        virtualenv_site_packages: true
-
+        #virtualenv_site_packages: true
+        executable: pip
 
     - name: Just get the list from default pip
       community.general.pip_package_info:
