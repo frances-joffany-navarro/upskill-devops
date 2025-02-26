@@ -124,14 +124,14 @@
       args:
         chdir: my-app
     
-    #- name: Check the current directory
-    #  ansible.builtin.shell:
-    #    cmd: pwd
+    - name: Check the current directory
+      ansible.builtin.shell:
+        cmd: pwd
 
     - name: Activate virtual environment and install docker module
       ansible.builtin.command: source my-env/bin/activate && python3 -m pip install docker==6.1.3 requests==2.31.0
       args:
-        chdir: my-app/
+        chdir: my-app
         
     - name: Install Docker Module for Python
       ansible.builtin.pip:
