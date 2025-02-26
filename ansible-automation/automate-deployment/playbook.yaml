@@ -124,9 +124,9 @@
       args:
         chdir: my-app
     
-    #- name: Check the current directory
-    #  ansible.builtin.shell:
-    #    cmd: pwd
+    - name: Check the current directory
+      ansible.builtin.shell:
+        cmd: pwd
 
     - name: Activate virtual environment
       ansible.builtin.command: source my-env/bin/activate
