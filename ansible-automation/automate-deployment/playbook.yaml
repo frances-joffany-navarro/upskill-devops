@@ -145,6 +145,7 @@
         virtualenv: my-env
         virtualenv_command: python3 -m venv
         virtualenv_site_packages: true
+        virtualenv_python: python3
 
     - name: Just get the list from default pip
       community.general.pip_package_info:
