@@ -117,6 +117,7 @@
       ansible.builtin.file:
         path: my-app
         state: directory
+        mode: '0755' 
 
     #- name: Create virtual environment
     #  ansible.builtin.command: python -m ensurepip --upgrade
