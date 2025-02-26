@@ -143,7 +143,7 @@
         chdir: my-app/
         virtualenv: my-env
         virtualenv_command: python3 -m venv
-        #virtualenv_site_packages: true
+        virtualenv_site_packages: true
         executable: pip
 
     - name: Just get the list from default pip
