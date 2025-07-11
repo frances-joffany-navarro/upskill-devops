@@ -9,7 +9,7 @@ The different ways:
 1. [Local VM - Packages](#local-vm-packages) ![Static Badge](https://img.shields.io/badge/Done-darkgreen)
 2. [Local VM - Containers](#local-vm-containers) ![Static Badge](https://img.shields.io/badge/Done-darkgreen)
 3. [Cloud hosted VM - packages](#cloud-hosted-vm-packages) ![Static Badge](https://img.shields.io/badge/Done-darkgreen)
-4. [Cloud hosted VM - containers](#cloud-hosted-vm-containers) ![Static Badge](https://img.shields.io/badge/To%20do-grey)
+4. [Cloud hosted VM - containers](#cloud-hosted-vm-containers) ![Static Badge](https://img.shields.io/badge/Done-darkgreen)
 5. [Kubernetes hosting - locally](#kubernetes-hosting-locally) ![Static Badge](https://img.shields.io/badge/To%20do-grey)
 6. [Kubernetes hosting - cloud](#kubernetes-hosting-cloud) ![Static Badge](https://img.shields.io/badge/To%20do-grey)
 
