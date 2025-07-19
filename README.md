@@ -32,9 +32,6 @@ The different ways:
 5. Make the 3 containers work together and make site available from within the VM (look into exposing or exporting a port when running the web server container). See [docker-quickstart](https://github.com/frances-joffany-navarro/upskill-devops/tree/main/docker_quickstart).
 6. Use **docker-compose** to orchestrate the deployment of the 3 containers and create a new web server image that clones repo on deployment. See [my-docker-compose](https://github.com/frances-joffany-navarro/upskill-devops/tree/main/my-docker-compose).
 
-## Extra
-- Delete and Reassociate Static IP 
-
 <a id="cloud-hosted-vm-packages"></a>
 ### Cloud hosted VM - packages
 
@@ -46,6 +43,9 @@ The different ways:
 
 <a id="kubernetes-hosting-cloud"></a>
 ### Kubernetes hosting - cloud
+
+### Extra
+- Delete and Reassociate Static IP - 20/7 until 23/7 -  3 days extra project 
 
 ## Acknowledgement
 Bayani Carbone
