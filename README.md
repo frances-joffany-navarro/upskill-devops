@@ -45,7 +45,8 @@ The different ways:
 ### Kubernetes hosting - cloud
 
 ### Extra
-- Delete and Reassociate Static IP - 20/7 until 23/7 -  3 days extra project 
+- Delete and Reassociate Static IP - 20/7 until 23/7 -  3 days extra project
+  - Search for some ideas 
 
 ## Acknowledgement
 Bayani Carbone
