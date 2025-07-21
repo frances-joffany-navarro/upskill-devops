@@ -47,6 +47,7 @@ The different ways:
 ### Extra
 - Delete and Reassociate Static IP - 20/7 until 23/7 -  3 days extra project
   - Search for some ideas 
+  - Disassociate the previous ec2 then associate it to the newly created ec2
 
 ## Acknowledgement
 Bayani Carbone
