@@ -50,7 +50,7 @@ The different ways:
   - Disassociate the previous ec2 then associate it to the newly created ec2
   - Credit
     - [https://docs.ansible.com/ansible/latest/collections/amazon/aws/ec2_eip_module.html](https://docs.ansible.com/ansible/latest/collections/amazon/aws/ec2_eip_module.html)
-    - [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html](Is it better to disassociate first the EIP or reassociate?)
+    - [Is it better to disassociate first the EIP or reassociate?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
       
 ## Acknowledgement
 Bayani Carbone
