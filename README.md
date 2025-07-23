@@ -1,4 +1,4 @@
-# Upskill in Devops ![Static Badge](https://img.shields.io/badge/In%20progress-royalblue) -> (Extra)
+# Upskill in Devops ![Static Badge](https://img.shields.io/badge/In%20progress-royalblue) -> Extra Project
 This project is intended to showcase my learnings in my Devops journey. Started it on
 
 ## Objective
@@ -45,7 +45,7 @@ The different ways:
 ### Kubernetes hosting - cloud
 
 ### Extra
-- Delete and Reassociate Static IP - 20/7 until 23/7 -  3 days extra project
+- Delete and Reassociate Static IP - 20/7 until 23/7 -  3 days project
   - Search for some ideas 
   - Disassociate the previous ec2 then associate it to the newly created ec2
   - Credit
